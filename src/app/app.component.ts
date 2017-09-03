@@ -67,6 +67,7 @@ export class AppComponent {
 
   delete(course) {
     this.db.object('/courses/' + course.$key)
-      .remove();
+      .remove()
+      .then(x => console.log('DELETED'));
   }
 }
