@@ -64,4 +64,9 @@ export class AppComponent {
     //           if this property exist, they would be updated 
     //                                   otherwise they would be added.
   }
+
+  delete(course) {
+    this.db.object('/courses/' + course.$key)
+      .remove();
+  }
 }
