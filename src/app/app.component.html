@@ -1,16 +1,13 @@
-<button
-  (click)="ngOnDestroy()"
-  class="btn btn-default">
-  Go offline
-</button>
-<ul>
-  <li *ngFor="let course of courses$ | async">
-    {{ course.$value }}
-  </li>
+<!-- ugly, so much repetition -->
+<!-- <ul>
+  <li>{{ (author$ | async).name }}</li>
+  <li>{{ (author$ | async).students }}</li>
+  <li>{{ (author$ | async).isPremium }}</li>
+</ul> -->
+
+<!-- make it simplier by using "as keyword" -->
+<ul *ngIf="author$ | async as author">
+  <li>{{ author.name }}</li>
+  <li>{{ author.students }}</li>
+  <li>{{ author.isPremium }}</li>
 </ul>
-<p>
-  {{ course$ | async | json }}
-</p>
-<p>
-  {{ author$ | async | json }}
-</p>
